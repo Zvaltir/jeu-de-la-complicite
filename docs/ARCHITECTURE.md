@@ -103,7 +103,7 @@ Le manifeste et le service worker sont des fichiers statiques placés dans `publ
 - l'enregistrement demande explicitement une vérification de mise à jour du worker à chaque chargement en ligne ; l'échec de cette vérification reste silencieux hors ligne ;
 - l'enregistrement progressif est isolé de l'interface : un navigateur sans service worker garde l'application web complète.
 
-Le prompt d'installation est conservé par un contrôleur singleton indépendant des écrans rendus. Les deux listeners globaux ne sont installés qu'une fois ; le bouton Configuration courant se lie à cet état et reste masqué tant qu'aucun prompt utilisable n'est disponible.
+Le prompt d'installation est conservé par un contrôleur singleton indépendant des écrans rendus. Les deux listeners globaux ne sont installés qu'une fois. En navigation web, le bouton Configuration courant reste visible même sans prompt natif et ouvre alors une aide inline adaptée à iOS ou générique ; en mode installé ou après `appinstalled`, le contrôle est masqué.
 
 Le corpus étant importé statiquement dans le bundle JavaScript, il est inclus dans le cache applicatif et ne requiert aucune requête distante.
 

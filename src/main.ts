@@ -58,9 +58,9 @@ function renderConfiguration(): void {
     <div class="configuration-layout">
       <header class="hero">
         <p class="eyebrow">À vous de jouer</p>
-        <h1 id="configuration-title" tabindex="-1">Jeu de la <span>complicité</span></h1>
-        <p class="intro">Réglez la pioche, posez le téléphone au centre et faites deviner les mêmes références.</p>
-        <button class="install-button" id="install-app" type="button" hidden>Installer l’application</button>
+        <h1 id="configuration-title" tabindex="-1"><span class="title-line">Jeu de la</span> <span class="title-accent">complicité</span></h1>
+        <button class="install-button" id="install-app" type="button" aria-controls="install-help" aria-expanded="false" hidden>Installer l’application</button>
+        <p class="install-help" id="install-help" role="status" tabindex="-1" hidden></p>
       </header>
 
       <form class="configuration-card" id="configuration-form">
@@ -117,8 +117,9 @@ function renderConfiguration(): void {
   const balanceThemes = document.querySelector<HTMLInputElement>('#balance-themes')
   const balanceDifficulties = document.querySelector<HTMLInputElement>('#balance-difficulties')
   const installButton = document.querySelector<HTMLButtonElement>('#install-app')
-  if (!form || !minLevel || !maxLevel || !batchSize || !balanceThemes || !balanceDifficulties || !installButton) throw new Error('Configuration incomplète')
-  setupInstallButton(installButton)
+  const installHelp = document.querySelector<HTMLElement>('#install-help')
+  if (!form || !minLevel || !maxLevel || !batchSize || !balanceThemes || !balanceDifficulties || !installButton || !installHelp) throw new Error('Configuration incomplète')
+  setupInstallButton(installButton, installHelp)
 
   minLevel.addEventListener('change', () => {
     settings.minLevel = Number(minLevel.value) as NotorietyLevel

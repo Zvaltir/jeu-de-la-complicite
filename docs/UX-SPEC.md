@@ -42,6 +42,8 @@ Le contrôle de difficulté peut être deux sélecteurs simples. Ne pas utiliser
 
 Sur petit écran, les thèmes doivent pouvoir se parcourir naturellement sans cases microscopiques. Le scroll vertical est acceptable et préférable à une grille tassée.
 
+Le titre principal conserve `Jeu de la` et `complicité` comme deux segments cohérents. Le mot `complicité` reste entier et coloré ; sa taille s'adapte sur les petits écrans au lieu de le couper arbitrairement.
+
 ## 3. Écran Partie
 
 - Les mots sont l'élément visuel dominant.
@@ -88,7 +90,9 @@ V1 : chaleureuse, ludique, sobre. Ne pas reprendre le logo, les captures, la cha
 ## 8. Installation et hors connexion
 
 - Le parcours web reste complet sans installation.
-- Un bouton `Installer l'application` n'est affiché qu'après réception d'un événement d'installation réel du navigateur.
+- Le contrôle discret `Installer l'application` est visible en navigation web tant que l'application n'est pas déjà en mode installé ou `standalone`.
+- Si un prompt natif utilisable existe, le contrôle le déclenche. Sinon, une aide inline accessible explique l'ajout à l'écran d'accueil dans Safari sur iPhone/iPad ou depuis le menu des autres navigateurs.
+- L'événement `appinstalled` masque la proposition et purge le prompt conservé.
 - La disponibilité d'installation est conservée pendant les passages Configuration → Partie → Configuration, sans multiplier les listeners globaux.
 - Aucun message bloquant ne demande d'installer l'application.
 - Une fois la première visite en ligne réussie, configuration et partie restent utilisables après rechargement hors connexion.

@@ -138,5 +138,5 @@ Une régression sur les viewports smartphone est un échec de mission même si l
 - [ ] Première visite en ligne réussie → service worker actif → rechargement hors connexion : configuration et partie restent jouables avec le corpus embarqué.
 - [ ] Ancienne release active → nouvelle release déployée → rechargement en ligne : le nouvel HTML et son bundle sont récupérés sans vider le cache ; un rechargement hors ligne sert ensuite cette nouvelle release.
 - [ ] L'expérience web reste complète sans installation et sans support service worker.
-- [ ] Le contrôle d'installation, s'il existe, n'est visible que lorsqu'une installation réelle est disponible.
+- [ ] En navigation web non installée, le contrôle d'installation reste visible : il utilise le prompt natif disponible ou affiche une aide manuelle accessible ; il est masqué en mode `standalone` et après `appinstalled`.
 - [ ] Plusieurs cycles Configuration → Partie → Configuration n'accumulent pas de listeners globaux et conservent un prompt reçu pendant la Partie pour le bouton Configuration suivant.

@@ -121,7 +121,7 @@ Après une première visite en ligne réussie, l'application, son interface et l
 
 Lorsqu'une nouvelle release est déployée, un lancement ou rechargement en ligne récupère son HTML et met à jour la version disponible hors connexion, sans désinstallation ni nettoyage manuel du cache.
 
-Le contrôle `Installer l'application`, lorsqu'il est proposé, n'est visible que lorsque le navigateur signale qu'une installation réelle est disponible. L'absence de support des service workers ne doit jamais empêcher de jouer en ligne.
+Le contrôle facultatif `Installer l'application` reste visible en navigation web tant que l'application n'est pas déjà ouverte en mode installé. Il utilise le prompt natif lorsqu'il est disponible ; sinon, il affiche une aide courte adaptée à iOS ou générique pour expliquer l'ajout à l'écran d'accueil. L'absence de prompt natif ou de support des service workers ne doit jamais empêcher de jouer en ligne.
 
 ## 10. Hors périmètre V1
 
