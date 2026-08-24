@@ -11,12 +11,16 @@ describe('PWA', () => {
     ]))
   })
 
-  it('versionne, remplace et sert le cache hors ligne', () => {
+  it('sert les navigations réseau-d’abord avec un fallback offline mis à jour', () => {
     expect(serviceWorkerSource).toContain("CACHE_VERSION = 'v1'")
     expect(serviceWorkerSource).toContain("self.addEventListener('install'")
     expect(serviceWorkerSource).toContain("self.addEventListener('activate'")
     expect(serviceWorkerSource).toContain("self.addEventListener('fetch'")
     expect(serviceWorkerSource).toContain('caches.delete')
-    expect(serviceWorkerSource).toContain("request.mode === 'navigate'")
+    expect(serviceWorkerSource).toContain('async function networkFirstNavigation(request)')
+    expect(serviceWorkerSource).toContain("fetch(request, { cache: 'no-cache' })")
+    expect(serviceWorkerSource).toContain('if (!response.ok) throw new Error')
+    expect(serviceWorkerSource).toContain('cache.put(scopedUrl(), response.clone())')
+    expect(serviceWorkerSource).toContain("request.mode === 'navigate' ? networkFirstNavigation(request) : cacheFirstAsset(request)")
   })
 })

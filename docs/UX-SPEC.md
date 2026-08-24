@@ -89,7 +89,9 @@ V1 : chaleureuse, ludique, sobre. Ne pas reprendre le logo, les captures, la cha
 
 - Le parcours web reste complet sans installation.
 - Un bouton `Installer l'application` n'est affiché qu'après réception d'un événement d'installation réel du navigateur.
+- La disponibilité d'installation est conservée pendant les passages Configuration → Partie → Configuration, sans multiplier les listeners globaux.
 - Aucun message bloquant ne demande d'installer l'application.
 - Une fois la première visite en ligne réussie, configuration et partie restent utilisables après rechargement hors connexion.
 - L'affichage `standalone` conserve les mêmes priorités mobile-first, safe areas et règles d'accessibilité que l'expérience navigateur.
 - Une erreur d'enregistrement du service worker reste silencieuse et ne casse pas le jeu web.
+- Après un rechargement en ligne, la release courante remplace le fallback HTML hors ligne précédent.

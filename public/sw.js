@@ -31,26 +31,34 @@ self.addEventListener('activate', (event) => {
   })())
 })
 
+async function networkFirstNavigation(request) {
+  const cache = await caches.open(CACHE_NAME)
+  try {
+    const response = await fetch(request, { cache: 'no-cache' })
+    if (!response.ok) throw new Error(`Navigation indisponible (${response.status})`)
+    await cache.put(scopedUrl(), response.clone())
+    return response
+  } catch (error) {
+    const fallback = await cache.match(scopedUrl())
+    if (fallback) return fallback
+    throw error
+  }
+}
+
+async function cacheFirstAsset(request) {
+  const cached = await caches.match(request)
+  if (cached) return cached
+  const response = await fetch(request)
+  if (response.ok) {
+    const cache = await caches.open(CACHE_NAME)
+    await cache.put(request, response.clone())
+  }
+  return response
+}
+
 self.addEventListener('fetch', (event) => {
   const request = event.request
   const url = new URL(request.url)
   if (request.method !== 'GET' || url.origin !== self.location.origin || !url.href.startsWith(self.registration.scope)) return
-  event.respondWith((async () => {
-    const cached = await caches.match(request)
-    if (cached) return cached
-    try {
-      const response = await fetch(request)
-      if (response.ok) {
-        const cache = await caches.open(CACHE_NAME)
-        await cache.put(request, response.clone())
-      }
-      return response
-    } catch (error) {
-      if (request.mode === 'navigate') {
-        const fallback = await caches.match(scopedUrl())
-        if (fallback) return fallback
-      }
-      throw error
-    }
-  })())
+  event.respondWith(request.mode === 'navigate' ? networkFirstNavigation(request) : cacheFirstAsset(request))
 })

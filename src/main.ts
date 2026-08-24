@@ -2,7 +2,7 @@ import './style.css'
 import rawCorpus from './data/words.json'
 import { getEligibleEntries, validateCorpus } from './lib/corpus'
 import { DrawEngine } from './lib/draw'
-import { registerServiceWorker, setupInstallButton } from './lib/pwa'
+import { detachInstallButton, registerServiceWorker, setupInstallButton } from './lib/pwa'
 import { createDefaultSettings, getLaunchProblem } from './lib/settings'
 import { THEMES } from './lib/themes'
 import type { Corpus, DrawBatch, GameSettings, NotorietyLevel, ThemeId } from './lib/types'
@@ -183,6 +183,7 @@ function renderConfiguration(): void {
 }
 
 function renderGame(batch: DrawBatch): void {
+  detachInstallButton()
   app.className = 'game-shell'
   app.innerHTML = `
     <section class="game" aria-labelledby="game-title">
@@ -213,6 +214,7 @@ function renderGame(batch: DrawBatch): void {
 }
 
 function renderCorpusError(error: unknown): void {
+  detachInstallButton()
   app.className = 'error-shell'
   app.innerHTML = `
     <section class="error-card" role="alert">

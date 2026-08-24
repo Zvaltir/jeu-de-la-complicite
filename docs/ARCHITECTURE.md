@@ -95,9 +95,12 @@ Le manifeste et le service worker sont des fichiers statiques placés dans `publ
 - `manifest.json` utilise des chemins relatifs, `start_url: "./"`, `scope: "./"` et `display: "standalone"` ;
 - `sw.js` résout toutes les ressources depuis `self.registration.scope`, ce qui couvre le sous-chemin GitHub Pages `/jeu-de-la-complicite/` sans le coder en dur ;
 - à l'installation, le service worker lit l'HTML construit et précache les assets Vite hashés, le manifeste et les icônes ;
-- les requêtes locales déjà visitées sont servies depuis le cache, avec repli sur l'HTML de l'application pour une navigation hors ligne ;
+- les navigations HTML utilisent le réseau en priorité avec `cache: no-cache`, mettent à jour le fallback offline en cas de succès, puis utilisent ce fallback uniquement si le réseau échoue ;
+- les assets Vite hashés et les autres ressources locales utilisent une stratégie cache-first ;
 - le nom de cache est versionné et les anciennes versions sont supprimées à l'activation ;
 - l'enregistrement progressif est isolé de l'interface : un navigateur sans service worker garde l'application web complète.
+
+Le prompt d'installation est conservé par un contrôleur singleton indépendant des écrans rendus. Les deux listeners globaux ne sont installés qu'une fois ; le bouton Configuration courant se lie à cet état et reste masqué tant qu'aucun prompt utilisable n'est disponible.
 
 Le corpus étant importé statiquement dans le bundle JavaScript, il est inclus dans le cache applicatif et ne requiert aucune requête distante.
 
