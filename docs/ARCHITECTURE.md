@@ -31,6 +31,10 @@ Aucun backend et aucune base de données.
 │   │   └── types.ts
 │   ├── main.ts
 │   └── style.css
+├── public/
+│   ├── icons/
+│   ├── manifest.json
+│   └── sw.js
 ├── tests/
 ├── index.html
 ├── package.json
@@ -83,6 +87,19 @@ Aucune bibliothèque UI n'est nécessaire pour le responsive.
 `vite.config.ts` utilise une base relative (`./`) afin que les assets fonctionnent à la fois sous `https://<user>.github.io/<repo>/` et, plus tard, derrière un domaine personnalisé sans refonte.
 
 Le déploiement utilise un workflow Actions et l'artifact `dist/`.
+
+## PWA et cache hors ligne
+
+Le manifeste et le service worker sont des fichiers statiques placés dans `public/` afin que Vite les copie sans transformation dans `dist/`.
+
+- `manifest.json` utilise des chemins relatifs, `start_url: "./"`, `scope: "./"` et `display: "standalone"` ;
+- `sw.js` résout toutes les ressources depuis `self.registration.scope`, ce qui couvre le sous-chemin GitHub Pages `/jeu-de-la-complicite/` sans le coder en dur ;
+- à l'installation, le service worker lit l'HTML construit et précache les assets Vite hashés, le manifeste et les icônes ;
+- les requêtes locales déjà visitées sont servies depuis le cache, avec repli sur l'HTML de l'application pour une navigation hors ligne ;
+- le nom de cache est versionné et les anciennes versions sont supprimées à l'activation ;
+- l'enregistrement progressif est isolé de l'interface : un navigateur sans service worker garde l'application web complète.
+
+Le corpus étant importé statiquement dans le bundle JavaScript, il est inclus dans le cache applicatif et ne requiert aucune requête distante.
 
 ## CI
 

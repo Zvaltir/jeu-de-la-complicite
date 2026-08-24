@@ -41,3 +41,6 @@ Lorsque les deux contrôles sont actifs, le moteur tire uniformément une cellul
 
 ## D014 — Mobile-first
 Le smartphone est la cible UX prioritaire. Les largeurs smartphone font partie des critères bloquants de validation ; desktop est une adaptation, pas la cible de conception initiale.
+
+## D015 — PWA installable et hors ligne
+La V1 est installable avec le nom `Jeu de la complicité` et `display: standalone`, sans rendre l'installation obligatoire. Après une première visite en ligne réussie, l'interface et le corpus embarqué fonctionnent hors connexion. Le manifeste, les icônes et le service worker utilisent des chemins relatifs compatibles avec le sous-chemin GitHub Pages. Le cache est versionné et renouvelé proprement. L'absence de support service worker ne casse jamais l'application web.

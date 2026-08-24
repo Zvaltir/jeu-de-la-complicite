@@ -84,3 +84,12 @@ Sur petit écran, les thèmes doivent pouvoir se parcourir naturellement sans ca
 ## 7. Direction visuelle
 
 V1 : chaleureuse, ludique, sobre. Ne pas reprendre le logo, les captures, la charte ou les assets de l'émission. L'interface doit avoir sa propre identité.
+
+## 8. Installation et hors connexion
+
+- Le parcours web reste complet sans installation.
+- Un bouton `Installer l'application` n'est affiché qu'après réception d'un événement d'installation réel du navigateur.
+- Aucun message bloquant ne demande d'installer l'application.
+- Une fois la première visite en ligne réussie, configuration et partie restent utilisables après rechargement hors connexion.
+- L'affichage `standalone` conserve les mêmes priorités mobile-first, safe areas et règles d'accessibilité que l'expérience navigateur.
+- Une erreur d'enregistrement du service worker reste silencieuse et ne casse pas le jeu web.

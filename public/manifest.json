@@ -1,0 +1,15 @@
+{
+  "name": "Jeu de la complicité",
+  "short_name": "Complicité",
+  "description": "Un jeu de références culturelles à faire deviner autour d’une table.",
+  "lang": "fr",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4efe5",
+  "theme_color": "#143e3a",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

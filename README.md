@@ -1,6 +1,6 @@
 # Jeu de la complicité
 
-Bootstrap technique V1 préparé avant la première mission Codex.
+Application web statique V1 du Jeu de la complicité.
 
 ## État
 
@@ -9,12 +9,15 @@ Ce dépôt contient :
 - le contrat normatif des quatre modes de tirage ;
 - la doctrine mobile-first ;
 - l'architecture technique retenue ;
-- un squelette Vite + TypeScript ;
+- une application Vite + TypeScript vanilla complète ;
+- les écrans Configuration et Partie ;
+- un moteur testable couvrant les quatre modes de tirage ;
 - un petit corpus factice conforme au schéma ;
+- une PWA installable et utilisable hors ligne après une première visite réussie ;
 - les workflows CI et GitHub Pages ;
 - les critères d'acceptation destinés à Codex.
 
-Le frontend final n'est volontairement pas implémenté dans cette phase : Codex doit partir de ce socle et non redécouvrir le produit.
+Le corpus inclus reste factice. Le corpus final de 5 000 entrées sera intégré séparément sans modifier le contrat ni le moteur.
 
 ## Démarrage local
 
@@ -48,6 +51,10 @@ Voir `docs/DRAW-ALGORITHM.md`. Les deux options d'égalisation sont désactivée
 ## Mobile-first
 
 Le smartphone est la cible prioritaire. Voir `docs/UX-SPEC.md` et la section mobile bloquante de `docs/ACCEPTANCE-TESTS.md`.
+
+## Installation et hors ligne
+
+Une fois la première visite en ligne réussie, le service worker conserve l'application et le corpus embarqué pour les rechargements hors connexion. L'installation est facultative et n'est proposée que par les navigateurs compatibles.
 
 ## Déploiement
 

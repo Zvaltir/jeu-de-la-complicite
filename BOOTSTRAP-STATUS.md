@@ -13,8 +13,8 @@ The bootstrap contains the authoritative product/data/draw/UX/architecture/accep
 - Made mobile-first behavior a blocking acceptance requirement, including 320/375/390/430 px smartphone widths and landscape.
 - Removed any requirement that the repository itself be public.
 
-## Not yet validated in this environment
+## M0 validation completed
 
-No `package-lock.json` is included because dependency installation was not completed in the preparation environment. Mission M0 must install the pinned dependencies, generate/commit the lockfile, and run the full verification suite. If a pinned version no longer resolves, Codex may update only to the nearest current stable compatible version and must report the change; it must not re-architect the stack.
+M0 generated `package-lock.json` and validated dependency installation, type checking, tests, build, CI, and GitHub Pages.
 
-The final application UI and draw engine are intentionally not implemented yet.
+M1 implements the functional V1, deterministic draw engine tests, mobile-first UI, and installable offline PWA. The bundled corpus remains intentionally fake; the final 5,000-entry corpus is a later mission.
