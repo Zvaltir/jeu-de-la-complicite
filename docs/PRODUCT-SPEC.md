@@ -113,7 +113,17 @@ Si le nombre d'entrées restant dans le cycle est inférieur à la taille d'une 
 
 Pour l'égalisation des catégories, l'affectation exclusive des entrées multi-thèmes est reconstruite au début de chaque nouveau cycle.
 
-## 9. Hors périmètre V1
+## 9. PWA et fonctionnement hors ligne
+
+La V1 est une Progressive Web App installable, tout en restant entièrement utilisable dans un navigateur sans installation.
+
+Après une première visite en ligne réussie, l'application, son interface et le corpus embarqué doivent pouvoir être rechargés et utilisés hors connexion. L'installation utilise le nom `Jeu de la complicité` et un affichage `standalone`.
+
+Lorsqu'une nouvelle release est déployée, un lancement ou rechargement en ligne récupère son HTML et met à jour la version disponible hors connexion, sans désinstallation ni nettoyage manuel du cache.
+
+Le contrôle `Installer l'application`, lorsqu'il est proposé, n'est visible que lorsque le navigateur signale qu'une installation réelle est disponible. L'absence de support des service workers ne doit jamais empêcher de jouer en ligne.
+
+## 10. Hors périmètre V1
 
 Pas de :
 - compte utilisateur ;

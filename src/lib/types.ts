@@ -29,3 +29,20 @@ export interface Corpus {
   schemaVersion: 1
   entries: CorpusEntry[]
 }
+
+export interface DrawFilters {
+  minLevel: NotorietyLevel
+  maxLevel: NotorietyLevel
+  selectedThemes: ThemeId[]
+}
+
+export interface GameSettings extends DrawFilters {
+  batchSize: number
+  balanceThemes: boolean
+  balanceDifficulties: boolean
+}
+
+export interface DrawBatch {
+  entries: CorpusEntry[]
+  recycled: boolean
+}
