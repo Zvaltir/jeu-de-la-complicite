@@ -88,6 +88,6 @@ Les doublons sémantiques ou traductions équivalentes relèvent de la QA édito
 
 ## 7. Corpus final
 
-Objectif V1 : exactement **5 000 entrées actives, uniques et validées**.
+Le corpus final V1.1 contient **5 919 entrées actives, uniques et validées**. Ce compte est contrôlé explicitement par les tests de release.
 
-Le fichier de développement peut en contenir moins. L'intégration finale devra ajouter un contrôle explicite du compte attendu à la passe de release.
+Les 5 000 entrées du corpus V1 initial sont conservées ; 919 entrées ont été ajoutées pour densifier les cellules `thème × difficulté` sans modifier la doctrine de notoriété.

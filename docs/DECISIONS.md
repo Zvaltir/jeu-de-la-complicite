@@ -1,7 +1,7 @@
 # DECISIONS — journal canonique
 
 ## D001 — Corpus V1
-Objectif : 5 000 entrées actives validées.
+Le corpus final V1.1 densifié contient 5 919 entrées actives validées. Les 5 000 entrées V1 initiales sont conservées ; le total n'est plus plafonné artificiellement à 5 000.
 
 ## D002 — Difficulté
 Cinq niveaux. La difficulté représente exclusivement la notoriété, jamais la difficulté à faire deviner.
