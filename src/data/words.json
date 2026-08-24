@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "entries": [
+    {
+      "id": "fiction.sherlock_holmes",
+      "label": "Sherlock Holmes",
+      "notorietyLevel": 1,
+      "themes": [
+        "litterature",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "fiction.dark_vador",
+      "label": "Dark Vador",
+      "notorietyLevel": 1,
+      "themes": [
+        "films",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "film.titanic",
+      "label": "Titanic",
+      "notorietyLevel": 1,
+      "themes": [
+        "films"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "music.daft_punk",
+      "label": "Daft Punk",
+      "notorietyLevel": 2,
+      "themes": [
+        "musique"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "anime.naruto",
+      "label": "Naruto",
+      "notorietyLevel": 2,
+      "themes": [
+        "mangas_anime",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "game.minecraft",
+      "label": "Minecraft",
+      "notorietyLevel": 2,
+      "themes": [
+        "jeux_video"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "series.breaking_bad",
+      "label": "Breaking Bad",
+      "notorietyLevel": 2,
+      "themes": [
+        "series"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "fiction.walter_white",
+      "label": "Walter White",
+      "notorietyLevel": 3,
+      "themes": [
+        "series",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "game.kratos",
+      "label": "Kratos",
+      "notorietyLevel": 3,
+      "themes": [
+        "jeux_video",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "anime.light_yagami",
+      "label": "Light Yagami",
+      "notorietyLevel": 3,
+      "themes": [
+        "mangas_anime",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "web.squeezie",
+      "label": "Squeezie",
+      "notorietyLevel": 2,
+      "themes": [
+        "internet_web",
+        "personnalites_contemporaines"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "sport.kylian_mbappe",
+      "label": "Kylian Mbappé",
+      "notorietyLevel": 1,
+      "themes": [
+        "sport",
+        "personnalites_contemporaines"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "history.napoleon_bonaparte",
+      "label": "Napoléon",
+      "notorietyLevel": 1,
+      "themes": [
+        "personnalites_historiques",
+        "histoire"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "history.talleyrand",
+      "label": "Talleyrand",
+      "notorietyLevel": 4,
+      "themes": [
+        "personnalites_historiques",
+        "histoire",
+        "politique_societe"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "anime.shogo_makishima",
+      "label": "Shogo Makishima",
+      "notorietyLevel": 5,
+      "themes": [
+        "mangas_anime",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "comic.watchmen",
+      "label": "Watchmen",
+      "notorietyLevel": 3,
+      "themes": [
+        "bd_comics"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "animation.rick_sanchez",
+      "label": "Rick Sanchez",
+      "notorietyLevel": 3,
+      "themes": [
+        "dessins_animes",
+        "series",
+        "personnages_fiction"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "literature.le_petit_prince",
+      "label": "Le Petit Prince",
+      "notorietyLevel": 1,
+      "themes": [
+        "litterature"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "politics.democratie",
+      "label": "Démocratie",
+      "notorietyLevel": 1,
+      "themes": [
+        "politique_societe"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "music.mf_doom",
+      "label": "MF DOOM",
+      "notorietyLevel": 4,
+      "themes": [
+        "musique"
+      ],
+      "enabled": true
+    }
+  ]
+}
