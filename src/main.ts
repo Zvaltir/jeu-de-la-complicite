@@ -2,6 +2,7 @@ import './style.css'
 import rawCorpus from './data/words.json'
 import { getEligibleEntries, validateCorpus } from './lib/corpus'
 import { DrawEngine } from './lib/draw'
+import { escapeHtml } from './lib/html'
 import { detachInstallButton, registerServiceWorker, setupInstallButton } from './lib/pwa'
 import { createDefaultSettings, getLaunchProblem } from './lib/settings'
 import { THEMES } from './lib/themes'
@@ -14,13 +15,6 @@ const app: HTMLElement = appNode
 let corpus: Corpus
 let settings = createDefaultSettings()
 let game: DrawEngine | null = null
-
-function escapeHtml(value: string): string {
-  return value.replace(/[&<>'"]/gu, (character) => {
-    const entities: Record<string, string> = { '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }
-    return entities[character] ?? character
-  })
-}
 
 function levelOptions(selected: NotorietyLevel): string {
   return [1, 2, 3, 4, 5]
@@ -64,7 +58,7 @@ function renderConfiguration(): void {
     <div class="configuration-layout">
       <header class="hero">
         <p class="eyebrow">À vous de jouer</p>
-        <h1>Jeu de la <span>complicité</span></h1>
+        <h1 id="configuration-title" tabindex="-1">Jeu de la <span>complicité</span></h1>
         <p class="intro">Réglez la pioche, posez le téléphone au centre et faites deviner les mêmes références.</p>
         <button class="install-button" id="install-app" type="button" hidden>Installer l’application</button>
       </header>
@@ -208,7 +202,7 @@ function renderGame(batch: DrawBatch): void {
   document.querySelector('#end-game')?.addEventListener('click', () => {
     game = null
     renderConfiguration()
-    app.focus()
+    document.querySelector<HTMLElement>('#configuration-title')?.focus()
   })
   document.querySelector<HTMLButtonElement>('#next-words')?.focus()
 }

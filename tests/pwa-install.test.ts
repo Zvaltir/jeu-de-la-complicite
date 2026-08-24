@@ -1,5 +1,5 @@
-import { describe, expect, it, vi } from 'vitest'
-import { InstallPromptController } from '../src/lib/pwa'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { InstallPromptController, registerServiceWorker } from '../src/lib/pwa'
 
 class CountingEventTarget extends EventTarget {
   readonly listenerCounts = new Map<string, number>()
@@ -63,5 +63,23 @@ describe('InstallPromptController', () => {
     controller.bindButton(button)
     target.dispatchEvent(new Event('beforeinstallprompt', { cancelable: true }))
     expect(button.hidden).toBe(true)
+  })
+})
+
+describe('registerServiceWorker', () => {
+  afterEach(() => vi.unstubAllGlobals())
+
+  it('force une vérification du worker courant sans bloquer l’application', async () => {
+    const update = vi.fn(async () => undefined)
+    const register = vi.fn(async () => ({ update }))
+    const fakeWindow = new EventTarget()
+    vi.stubGlobal('window', fakeWindow)
+    vi.stubGlobal('document', { baseURI: 'https://example.test/jeu/' })
+    vi.stubGlobal('navigator', { serviceWorker: { register } })
+
+    registerServiceWorker()
+    fakeWindow.dispatchEvent(new Event('load'))
+    await vi.waitFor(() => expect(update).toHaveBeenCalledOnce())
+    expect(register).toHaveBeenCalledWith(new URL('https://example.test/jeu/sw.js'), { scope: './' })
   })
 })

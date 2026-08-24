@@ -77,9 +77,12 @@ export function registerServiceWorker(): void {
   if (!('serviceWorker' in navigator)) return
   window.addEventListener('load', () => {
     const serviceWorkerUrl = new URL('sw.js', document.baseURI)
-    void navigator.serviceWorker.register(serviceWorkerUrl, { scope: './' }).catch(() => {
-      // Le jeu web reste utilisable si le navigateur refuse les service workers.
-    })
+    void navigator.serviceWorker
+      .register(serviceWorkerUrl, { scope: './' })
+      .then((registration) => registration.update())
+      .catch(() => {
+        // Le jeu web reste utilisable si le navigateur refuse les service workers ou si le réseau est indisponible.
+      })
   }, { once: true })
 }
 

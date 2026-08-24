@@ -8,7 +8,7 @@
   --muted: #6d625b;
   --paper: #fffdf8;
   --line: #d9cfc1;
-  --coral: #db5b46;
+  --coral: #c54532;
   --coral-dark: #a83225;
   --teal: #1f6f66;
   --sun: #f1c75b;
@@ -21,12 +21,13 @@ button, select { min-height: 44px; }
 button { cursor: pointer; }
 button:disabled { cursor: not-allowed; opacity: .55; }
 button:focus-visible, select:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #165fba; outline-offset: 3px; }
+.hero h1:focus { outline: 3px solid #165fba; outline-offset: .2rem; }
 #app { min-height: 100vh; min-height: 100dvh; }
 .app-shell { padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) calc(1.5rem + env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)); }
 .configuration-layout { width: min(100%, 72rem); margin: 0 auto; }
 .hero { padding: 1.5rem .25rem 2rem; }
 .eyebrow { margin: 0 0 .55rem; color: var(--coral-dark); font-size: .76rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
-.hero h1, .error-card h1 { max-width: 10ch; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.65rem, 14vw, 5.4rem); font-weight: 700; letter-spacing: -.055em; line-height: .88; }
+.hero h1, .error-card h1 { max-width: 10ch; margin: 0; overflow-wrap: anywhere; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.65rem, 14vw, 5.4rem); font-weight: 700; letter-spacing: -.055em; line-height: .88; }
 .hero h1 span { color: var(--coral); }
 .intro { max-width: 38rem; margin: 1.25rem 0 0; color: var(--muted); font-size: 1.04rem; line-height: 1.55; }
 .install-button, .theme-actions button { border: 0; background: transparent; color: var(--teal); font-weight: 750; text-decoration: underline; text-underline-offset: .2em; }
@@ -38,8 +39,8 @@ legend { width: 100%; padding: 0; color: var(--ink); font-family: Georgia, "Time
 .field-help { margin: .4rem 0 1rem; color: var(--muted); font-size: .92rem; }
 .level-range { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .55rem; align-items: end; }
 .level-range > span { padding-bottom: .7rem; color: var(--muted); }
-label { color: var(--muted); font-size: .85rem; font-weight: 700; }
-select { width: 100%; margin-top: .35rem; padding: .65rem 2rem .65rem .7rem; border: 1px solid #bcb0a1; border-radius: .75rem; background: white; color: var(--ink); }
+label { min-width: 0; overflow-wrap: anywhere; color: var(--muted); font-size: .85rem; font-weight: 700; }
+select { width: 100%; min-width: 0; margin-top: .35rem; padding: .65rem 2rem .65rem .7rem; border: 1px solid #bcb0a1; border-radius: .75rem; background: white; color: var(--ink); }
 .check-row { display: grid; grid-template-columns: 1.35rem 1fr; gap: .75rem; align-items: start; min-height: 44px; margin-top: 1.15rem; color: var(--ink); }
 .check-row input { width: 1.2rem; height: 1.2rem; margin: .15rem 0 0; accent-color: var(--teal); }
 .check-row strong, .check-row small { display: block; }
@@ -50,7 +51,7 @@ select { width: 100%; margin-top: .35rem; padding: .65rem 2rem .65rem .7rem; bor
 .theme-grid { display: grid; grid-template-columns: 1fr; gap: .5rem; }
 .theme-option { position: relative; min-width: 0; }
 .theme-option input { position: absolute; opacity: 0; }
-.theme-option span { display: flex; min-height: 46px; align-items: center; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: .75rem; background: #faf7f0; color: var(--ink); font-size: .88rem; line-height: 1.2; }
+.theme-option span { display: flex; min-height: 46px; align-items: center; overflow-wrap: anywhere; padding: .7rem .8rem; border: 1px solid var(--line); border-radius: .75rem; background: #faf7f0; color: var(--ink); font-size: .88rem; line-height: 1.2; }
 .theme-option input:checked + span { border-color: var(--teal); background: #e4f0ec; box-shadow: inset 4px 0 var(--teal); }
 .theme-option input:focus-visible + span { outline: 3px solid #165fba; outline-offset: 2px; }
 .batch-select { display: grid; grid-template-columns: minmax(0, 1fr) 5rem; gap: .75rem; align-items: center; color: var(--ink); font-size: .95rem; }
@@ -65,8 +66,8 @@ select { width: 100%; margin-top: .35rem; padding: .65rem 2rem .65rem .7rem; bor
 .game { display: flex; width: min(100%, 72rem); min-height: calc(100vh - max(1rem, env(safe-area-inset-top))); min-height: calc(100dvh - max(1rem, env(safe-area-inset-top))); margin: 0 auto; flex-direction: column; }
 .game-header { display: flex; gap: 1rem; align-items: start; justify-content: space-between; padding: .6rem .2rem 1.1rem; }
 .game-header .eyebrow { color: #f4c96b; }
-.game-header h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(2rem, 10vw, 4.5rem); letter-spacing: -.045em; line-height: .95; }
-.batch-count { flex: none; margin: 0; padding: .45rem .7rem; border: 1px solid rgb(255 255 255 / .35); border-radius: 999px; font-size: .78rem; font-weight: 800; }
+.game-header h1 { margin: 0; overflow-wrap: anywhere; font-family: Georgia, serif; font-size: clamp(2rem, 10vw, 4.5rem); letter-spacing: -.045em; line-height: .95; }
+.batch-count { min-width: 0; flex: 0 1 auto; margin: 0; padding: .45rem .7rem; border: 1px solid rgb(255 255 255 / .35); border-radius: 999px; font-size: .78rem; font-weight: 800; overflow-wrap: anywhere; text-align: center; }
 .cycle-notice { margin: 0 0 .8rem; padding: .65rem .8rem; border-radius: .65rem; background: #f4c96b; color: #34270f; font-size: .84rem; font-weight: 750; }
 .word-grid { display: grid; grid-template-columns: 1fr; gap: .7rem; padding-bottom: 1rem; }
 .word-card { display: grid; min-width: 0; min-height: 7.25rem; place-items: center; padding: 1rem; border-radius: 1.1rem; background: var(--paper); color: var(--ink); box-shadow: 0 .45rem 0 #092b28; text-align: center; }
@@ -86,7 +87,7 @@ select { width: 100%; margin-top: .35rem; padding: .65rem 2rem .65rem .7rem; bor
 }
 @media (min-width: 48rem) {
   .app-shell { padding: 2rem; }
-  .configuration-layout { display: grid; grid-template-columns: minmax(15rem, .75fr) minmax(28rem, 1.25fr); gap: 3rem; align-items: start; }
+  .configuration-layout { display: grid; grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); gap: clamp(2rem, 4vw, 3rem); align-items: start; }
   .hero { position: sticky; top: 2rem; padding-top: 2rem; }
   .theme-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .word-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
