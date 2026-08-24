@@ -12,12 +12,12 @@ Ce dépôt contient :
 - une application Vite + TypeScript vanilla complète ;
 - les écrans Configuration et Partie ;
 - un moteur testable couvrant les quatre modes de tirage ;
-- un petit corpus factice conforme au schéma ;
+- le corpus V1.1 densifié de 5 919 entrées actives ;
 - une PWA installable et utilisable hors ligne après une première visite réussie ;
 - les workflows CI et GitHub Pages ;
 - les critères d'acceptation destinés à Codex.
 
-Le corpus inclus reste factice. Le corpus final de 5 000 entrées sera intégré séparément sans modifier le contrat ni le moteur.
+Le corpus final V1.1 est intégré sans modification du contrat ni du moteur.
 
 ## Démarrage local
 
@@ -42,7 +42,7 @@ La sortie statique est générée dans `dist/`.
 
 ## Corpus
 
-Le fichier de développement est `src/data/words.json`. Le corpus définitif devra remplacer ce fichier sans changer le schéma. Voir `docs/DATA-CONTRACT.md`.
+Le corpus embarqué est `src/data/words.json`. Il contient 5 919 entrées actives et reste remplaçable sans changer le schéma. Voir `docs/DATA-CONTRACT.md`.
 
 ## Tirage
 
